@@ -1,0 +1,22 @@
+services:
+  postgres-dev:
+    build: .
+    image: amolumd/cmsc424-postgres-dev:latest
+    container_name: cmsc424-postgres
+
+    ports:
+      # PostgreSQL accessible on the host at localhost:5431
+      - "5431:5432"
+
+    # Uncomment to mount volumes:
+    # volumes:
+    #   # Edit PG source from your host editor:
+    #   - ./postgres-src:/home/postgres/postgres
+    #   # Persist the database across container restarts:
+    #   - pgdata:/usr/local/pgsql/data
+
+    stdin_open: true   # keep stdin open so `docker attach` works
+    tty: true          # allocate a pseudo-TTY
+
+# volumes:
+#   pgdata:
